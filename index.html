@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Otomasi Industri X Coding — belajar sensor, PLC, Arduino, mikrokontroler, listrik dasar, dan coding secara interaktif.">
+  <meta name="theme-color" content="#0b1220">
+  <title>Otomasi Industri X Coding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#beranda" aria-label="Otomasi Industri X Coding">
+      <span class="brand-mark">⚙</span>
+      <span>OTOMASI<span> X CODING</span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <nav id="nav">
+      <a href="#beranda">Beranda</a>
+      <a href="#materi">Materi</a>
+      <a href="#simulator">Simulator</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kuis">Kuis</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="beranda" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">SMK • OTOMASI INDUSTRI • CODING</p>
+        <h1>Belajar Otomasi Industri<br><span>jadi lebih nyata.</span></h1>
+        <p class="hero-text">Tempat belajar sensor, aktuator, PLC, Arduino, dasar listrik, logika kontrol, dan coding lewat materi singkat serta simulator interaktif.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#materi">Mulai Belajar →</a>
+          <a class="btn secondary" href="#simulator">Coba Simulator</a>
+        </div>
+        <div class="stats">
+          <div><strong>6+</strong><span>Topik utama</span></div>
+          <div><strong>3</strong><span>Simulator</span></div>
+          <div><strong>10</strong><span>Soal kuis</span></div>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Panel kontrol">
+        <div class="panel-head"><span class="dot green"></span><span>CONTROL PANEL</span><span class="status">ONLINE</span></div>
+        <div class="machine">
+          <div class="conveyor">
+            <div class="box box1"></div><div class="box box2"></div><div class="box box3"></div>
+          </div>
+          <div class="motor"><span>⚡</span><small>MOTOR</small></div>
+          <div class="sensor sensor-a"><i></i><small>SENSOR A</small></div>
+          <div class="lamp-row"><span class="lamp red"></span><span class="lamp yellow"></span><span class="lamp green active"></span></div>
+        </div>
+        <div class="panel-foot"><span>PLC READY</span><span id="clock">--:--:--</span></div>
+      </div>
+    </section>
+
+    <section class="section intro-grid">
+      <div>
+        <p class="eyebrow">ROADMAP</p>
+        <h2>Dari dasar sampai bisa bikin proyek.</h2>
+      </div>
+      <p>Pelajari konsep → pahami input/output → tulis logika → simulasi → rakit proyek nyata. Website ini dibuat sebagai teman belajar, bukan pengganti praktik di lab.</p>
+    </section>
+
+    <section id="materi" class="section">
+      <div class="section-title">
+        <div><p class="eyebrow">MATERI</p><h2>Fondasi Otomasi Industri</h2></div>
+        <span class="badge">Klik kartu untuk detail</span>
+      </div>
+      <div class="cards">
+        <article class="card lesson" data-topic="listrik">
+          <div class="icon">⚡</div><h3>Listrik Dasar</h3>
+          <p>Tegangan, arus, hambatan, daya, rangkaian seri/paralel, dan keselamatan kerja.</p>
+          <button>Pelajari →</button>
+        </article>
+        <article class="card lesson" data-topic="sensor">
+          <div class="icon">◉</div><h3>Sensor</h3>
+          <p>Sensor proximity, infrared, LDR, suhu, limit switch, serta konsep input.</p>
+          <button>Pelajari →</button>
+        </article>
+        <article class="card lesson" data-topic="aktuator">
+          <div class="icon">↻</div><h3>Aktuator</h3>
+          <p>Motor DC, servo, relay, solenoid, lampu, dan cara memahami output.</p>
+          <button>Pelajari →</button>
+        </article>
+        <article class="card lesson" data-topic="plc">
+          <div class="icon">▣</div><h3>PLC</h3>
+          <p>Input/output, scan cycle, ladder logic, kontak NO/NC, coil, dan timer.</p>
+          <button>Pelajari →</button>
+        </article>
+        <article class="card lesson" data-topic="arduino">
+          <div class="icon">⌁</div><h3>Arduino</h3>
+          <p>Pin digital/analog, setup-loop, digitalRead, digitalWrite, dan serial monitor.</p>
+          <button>Pelajari →</button>
+        </article>
+        <article class="card lesson" data-topic="coding">
+          <div class="icon">&lt;/&gt;</div><h3>Coding</h3>
+          <p>Variabel, kondisi if, perulangan, fungsi, debugging, dan logika program.</p>
+          <button>Pelajari →</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="simulator" class="section dark-section">
+      <div class="section-title">
+        <div><p class="eyebrow">LAB SIMULASI</p><h2>Uji logika tanpa takut salah kabel</h2></div>
+        <span class="badge">Aman • Offline • Interaktif</span>
+      </div>
+
+      <div class="sim-grid">
+        <div class="sim-card">
+          <div class="sim-head"><h3>PLC Start/Stop</h3><span id="plcState" class="state off">STOP</span></div>
+          <p class="muted">Tekan START untuk mengaktifkan motor. STOP memutus output.</p>
+          <div class="plc-board">
+            <div class="rail"><span></span><span></span></div>
+            <div class="ladder">
+              <div class="contact" id="stopContact">STOP (NC)</div>
+              <div class="contact start-contact" id="startContact">START (NO)</div>
+              <div class="coil" id="motorCoil">MOTOR</div>
+            </div>
+          </div>
+          <div class="sim-buttons"><button class="btn primary" id="startBtn">START</button><button class="btn danger" id="stopBtn">STOP</button></div>
+          <div class="output"><span class="lamp green" id="motorLamp"></span><span>Output Q0.0 / Motor</span></div>
+        </div>
+
+        <div class="sim-card">
+          <div class="sim-head"><h3>Sensor → Lampu</h3><span id="sensorState" class="state off">LOW</span></div>
+          <p class="muted">Klik sensor untuk mengubah input digital 0 ↔ 1.</p>
+          <button class="sensor-pad" id="sensorPad"><span class="target">◉</span><b>SENSOR</b><small>INPUT I0.0</small></button>
+          <div class="logic-arrow">INPUT → LOGIC → OUTPUT</div>
+          <div class="output big"><span class="lamp red" id="outputLamp"></span><span>Lampu Output</span></div>
+        </div>
+
+        <div class="sim-card">
+          <div class="sim-head"><h3>Ohm's Law</h3><span class="state">V = I × R</span></div>
+          <p class="muted">Masukkan dua nilai untuk menghitung nilai ketiga.</p>
+          <div class="form-row">
+            <label>V (Volt)<input id="volt" type="number" min="0" step="any" placeholder="12"></label>
+            <label>R (Ohm)<input id="ohm" type="number" min="0" step="any" placeholder="100"></label>
+          </div>
+          <button class="btn primary full" id="calcBtn">Hitung Arus</button>
+          <div class="result" id="calcResult">I = V / R</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyek" class="section">
+      <div class="section-title">
+        <div><p class="eyebrow">PROJECT LAB</p><h2>Ide proyek untuk latihan</h2></div>
+      </div>
+      <div class="project-grid">
+        <article class="project"><span>01</span><h3>Lampu Otomatis</h3><p>LDR membaca kondisi cahaya lalu mengendalikan lampu.</p><div class="tags"><b>Arduino</b><b>LDR</b><b>Relay</b></div></article>
+        <article class="project"><span>02</span><h3>Konveyor Mini</h3><p>Sensor mendeteksi benda dan mengatur motor konveyor.</p><div class="tags"><b>PLC</b><b>Sensor</b><b>Motor</b></div></article>
+        <article class="project"><span>03</span><h3>Penghitung Barang</h3><p>Sensor memberi pulsa dan program menghitung jumlah benda.</p><div class="tags"><b>Counter</b><b>PLC</b><b>HMI</b></div></article>
+        <article class="project"><span>04</span><h3>Smart Fan</h3><p>Suhu dibaca sensor lalu kecepatan kipas diatur berdasarkan kondisi.</p><div class="tags"><b>Sensor</b><b>PWM</b><b>Coding</b></div></article>
+      </div>
+    </section>
+
+    <section id="kuis" class="section quiz-section">
+      <div class="quiz-wrap">
+        <div><p class="eyebrow">CHECKPOINT</p><h2>Uji pemahamanmu</h2><p class="muted">10 soal acak dari materi dasar. Pilih jawaban lalu lihat hasilnya.</p></div>
+        <div id="quizBox" class="quiz-box"></div>
+      </div>
+    </section>
+
+    <section id="tentang" class="section about">
+      <div>
+        <p class="eyebrow">TENTANG WEBSITE</p>
+        <h2>Dibuat untuk belajar, mencoba, dan berani bikin.</h2>
+      </div>
+      <div>
+        <p>Website ini berjalan tanpa server dan tidak membutuhkan database. Karena itu cocok di-host menggunakan GitHub Pages dan bisa dibuka dari HP maupun laptop.</p>
+        <p class="note">⚠️ Untuk praktik listrik/PLC sungguhan, ikuti SOP sekolah, gunakan komponen yang sesuai, dan minta pengawasan guru/instruktur.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>⚙ OTOMASI X CODING</strong><span>Belajar. Simulasi. Bikin.</span></div>
+    <p>© <span id="year"></span> Otomasi Industri X Coding • Dibuat untuk pembelajaran.</p>
+  </footer>
+
+  <div class="modal" id="lessonModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+      <p class="eyebrow" id="modalEyebrow">MATERI</p>
+      <h2 id="modalTitle">Materi</h2>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
